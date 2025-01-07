@@ -9,8 +9,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        darkModeDb: 'hsl(209, 23%, 22%)',
+        darkModeBg: 'hsl(207, 26%, 17%)',
+        lightModeLB: 'hsl(200, 15%, 8%)',
+        lightModeInput: 'hsl(0, 0%, 52%)',
+        lightModeBG: 'hsl(0, 0%, 98%)',
+        darkLightMode: 'hsl(0, 0%, 100%)',
+
+     
       },
     },
   },
