@@ -7,7 +7,7 @@ import React, {useState } from "react";
 
 export default function Home() {
   const [searchInput, setSearchInput] = useState("");
-  const [filteredInput, setFilteredInput] = useState("filter")
+  const [filteredInput, setFilteredInput] = useState("")
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
     setSearchInput(e.target.value)
@@ -15,20 +15,22 @@ export default function Home() {
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilteredInput(e.target.value);
-    console.log(filteredInput)
   }
 
-  const filteredList = countryData.filter( (country) => {
+
+   const filteredList = countryData.filter((country) => {
     const queryInput = searchInput.toLowerCase();
     const filterRegion = filteredInput.toLowerCase();
 
-    if(searchInput === "" || filteredInput === "") return true;
+    // If no filter or search, return all countries
+    if (searchInput === "" && filteredInput === "") return true;
 
-    const matchedSearchInput = country.name.toLowerCase().includes(queryInput);
-    const matchedFilter = country.region.toLowerCase() === filterRegion;
+    // Check if search matches or region matches
+    const matchesSearch = country.name.toLowerCase().includes(queryInput);
+    const matchesFilter = filteredInput === "" || country.region.toLowerCase() === filterRegion;
 
-    return matchedSearchInput ||  matchedFilter;
-  }) 
+    return matchesSearch && matchesFilter; 
+  });
 
 
 

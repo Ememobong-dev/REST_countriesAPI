@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${isDarkMode ? " bg-darkModeBg " : "bg-lightModeBG" }  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${isDarkMode ? " bg-darkModeBg text-white " : "bg-lightModeBG" }  antialiased`}
       >
         <Navbar handleChangeMode = {handleBgChange} isDarkMode={isDarkMode}   />
         {children}
